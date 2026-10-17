@@ -3,258 +3,195 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Style Studio: Math Fashion Show</title>
+<title>Moon Slayer Math Training</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@500;800&display=swap">
 <style>
-:root{--bg:#1d1238;--card:#2b1d52;--pink:#ff7fb0;--gold:#ffd24d;--moon:#fff3e0;--teal:#3fd0b4;--wist:#a58be0;
+:root{--night:#14162b;--deep:#1f2347;--moon:#f6ecc9;--ember:#ff5a3c;--wist:#a58be0;--teal:#3fd0b4;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 html,body{margin:0;min-height:100%}
-body{background:linear-gradient(#2d1655,#14162b);color:var(--moon);font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-weight:500}
-.big{font-family:"Dela Gothic One",system-ui,sans-serif;font-weight:400}
-main{max-width:980px;margin:0 auto;padding:12px 14px 30px}
-header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
-h1{font-size:clamp(20px,4.4vw,30px);margin:0}
-.coins{background:#0c0d1c;border:3px solid var(--gold);color:var(--gold);border-radius:20px;padding:6px 16px;font-size:24px}
-.sb{background:none;border:2px solid var(--wist);color:var(--moon);border-radius:12px;padding:6px 12px;font-size:18px}
-.grid{display:grid;grid-template-columns:minmax(230px,38%) 1fr;gap:14px}
-@media (max-width:640px){.grid{grid-template-columns:1fr}}
-.stage{position:relative;overflow:hidden;background:#2b1d52;border:3px solid var(--wist);border-radius:22px;padding:8px 8px 0;display:flex;align-items:flex-end;justify-content:center;min-height:min(62vh,480px)}
-#av{position:relative;z-index:1;height:min(58vh,450px);display:block;margin:0 auto}
-#av svg{height:100%;width:auto}
-.stage.walk #av{animation:rw 3s ease-in forwards}
-@keyframes rw{0%{transform:translate(-8px,-40px) scale(.5)}20%{transform:translate(8px,-28px) scale(.62)}40%{transform:translate(-8px,-14px) scale(.74)}60%{transform:translate(8px,-2px) scale(.86)}80%{transform:translate(-6px,6px) scale(.95)}100%{transform:translate(0,8px) scale(1)}}
-.bg{position:absolute;inset:0}.bg svg{width:100%;height:100%;display:block}
-.stage.walk #bgd,.stage:not(.walk) #bgr{display:none}
-.fl{animation:fl .5s infinite}@keyframes fl{0%,60%{opacity:0}70%{opacity:1}100%{opacity:0}}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-.tabs button{flex:1;min-width:92px;border:3px solid var(--wist);background:var(--card);color:var(--moon);border-radius:16px;padding:10px 6px;font:inherit;font-weight:800;font-size:18px}
-.tabs button.on{background:var(--pink);color:#2a1030;border-color:var(--pink)}
-.panel{background:var(--card);border:3px solid var(--wist);border-radius:20px;padding:14px;min-height:300px}
-.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-bottom:12px}
-.it{border:3px solid #54407f;background:#1d1238;color:var(--moon);border-radius:14px;padding:12px 6px;font:inherit;font-weight:800;font-size:17px}
-.it small{display:block;color:var(--gold);font-size:16px;margin-top:3px}
-.it.sel{border-color:var(--teal);background:#12413f}
-.sw{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 12px}
-.sw button{width:46px;height:46px;border-radius:50%;border:4px solid #fff3;padding:0}
-.sw button.sel{border-color:#fff}
-.lab{font-weight:800;font-size:18px;margin:6px 0 2px}
-.buy,.go{border:0;border-radius:16px;background:var(--gold);color:#2a1030;font-family:"Dela Gothic One",system-ui,sans-serif;font-size:22px;padding:14px 22px;width:100%;margin-top:6px}
-.buy:disabled{opacity:.45}.go{background:var(--pink)}
-.mq{text-align:center;font-size:clamp(40px,9vw,64px);margin:6px 0 14px}
-.ch{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.ch button{border:3px solid var(--wist);background:#1d1238;color:var(--moon);border-radius:18px;padding:16px;font-family:"Dela Gothic One",system-ui,sans-serif;font-size:34px}
-.ch button:active{background:var(--wist);color:#1d1238}
-.m{text-align:center;font-size:22px;font-weight:800;min-height:34px;margin:10px 0;color:var(--gold)}
-.theme{text-align:center;font-size:20px}
-.theme .big{font-size:30px;color:var(--pink);margin:4px 0}
-.stars{font-size:46px;text-align:center;margin:6px 0;letter-spacing:4px}
-.note{text-align:center;font-size:19px;margin:4px 0}
-@media (prefers-reduced-motion:reduce){.stage.walk #av,.fl{animation:none}}
+body{background:var(--night);color:var(--moon);font-family:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN",system-ui,sans-serif;font-weight:500;
+background-image:radial-gradient(circle at 50% 100%,transparent 38%,rgba(165,139,224,.13) 39% 45%,transparent 46%),radial-gradient(circle at 50% 100%,transparent 38%,rgba(165,139,224,.13) 39% 45%,transparent 46%);
+background-size:56px 28px;background-position:0 0,28px 14px}
+h1,h2,.big{font-family:"Dela Gothic One","Hiragino Kaku Gothic ProN",system-ui,sans-serif;font-weight:400;margin:0}
+main{max-width:760px;margin:0 auto;padding:20px 18px 40px}
+.moon{width:74px;height:74px;border-radius:50%;background:var(--moon);box-shadow:0 0 40px rgba(246,236,201,.45);margin:0 auto 12px}
+h1{font-size:clamp(28px,6vw,44px);text-align:center;line-height:1.15}
+.sub{text-align:center;font-size:20px;margin:10px 0 26px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mode{border:3px solid var(--wist);background:var(--deep);color:var(--moon);border-radius:18px;padding:20px 12px;font:inherit;font-weight:800;font-size:22px;min-height:96px;cursor:pointer}
+.mode b{display:block;font-family:"Dela Gothic One",system-ui,sans-serif;font-weight:400;font-size:34px;color:var(--teal);margin-bottom:4px}
+.mode:active{background:var(--wist);color:var(--night)}
+#hero img{height:120px;width:auto;max-width:130px;object-fit:contain;border-radius:14px}
+.pick{display:block;width:100%;margin-top:14px;border:3px dashed var(--teal);background:none;color:var(--moon);border-radius:18px;padding:16px;font:inherit;font-weight:800;font-size:20px}
+.hide{display:none!important}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:20px;font-weight:800;margin-bottom:10px}
+.back{background:none;border:2px solid var(--wist);color:var(--moon);border-radius:12px;padding:8px 14px;font:inherit;font-weight:800;font-size:18px}
+.arena{display:flex;justify-content:space-between;align-items:flex-end;background:var(--deep);border-radius:20px;padding:12px 18px 0;border:2px solid rgba(165,139,224,.4)}
+.arena svg{height:120px;width:auto}
+#demonbox{text-align:center;flex:1;max-width:250px}
+.hp{height:16px;border-radius:9px;background:#0c0d1c;overflow:hidden;border:2px solid var(--wist);margin:0 8px 6px}
+.hp i{display:block;height:100%;width:100%;background:var(--ember);transition:width .4s}
+#demon{transition:transform .2s}
+.hit{animation:hit .4s}@keyframes hit{25%{transform:translateX(12px) rotate(6deg)}60%{transform:translateX(-8px) rotate(-4deg)}}
+.slash{animation:sl .35s}@keyframes sl{50%{transform:translateX(30px)}}
+.q{text-align:center;font-size:clamp(46px,11vw,76px);margin:22px 0 8px;font-family:"Dela Gothic One",system-ui,sans-serif}
+.ans{margin:0 auto 14px;max-width:340px;min-height:76px;border:4px solid var(--teal);border-radius:16px;font-family:"Dela Gothic One",system-ui,sans-serif;font-size:46px;text-align:center;line-height:68px;background:#0c0d1c}
+.ans.bad{border-color:var(--ember);animation:sh .35s}@keyframes sh{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.msg{text-align:center;font-size:22px;font-weight:800;min-height:32px;margin-bottom:10px}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:380px;margin:0 auto}
+.pad button{min-height:68px;border-radius:16px;border:0;background:var(--wist);color:var(--night);font-family:"Dela Gothic One",system-ui,sans-serif;font-size:30px}
+.pad button:active{transform:scale(.95);background:var(--moon)}
+.pad .del{background:#d9d3ea}.pad .go{background:var(--teal)}
+.end{text-align:center;padding-top:20px}
+.end h2{font-size:clamp(30px,7vw,46px);margin:14px 0}
+.end p{font-size:22px}
+.stars{font-size:44px;letter-spacing:6px;margin:10px 0 24px}
+.again{border:0;border-radius:16px;background:var(--ember);color:#fff;font-family:"Dela Gothic One",system-ui,sans-serif;font-size:26px;padding:18px 34px;margin:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <main>
-<header><h1 class="big">✨ Style Studio</h1><span class="coins big" id="coins">✨ 0</span><button class="sb" id="snd">🔊</button></header>
-<div class="grid">
-  <div class="stage" id="stage"><div class="bg" id="bgd"><svg viewBox="0 0 300 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-<defs><linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7c6dc"/><stop offset="1" stop-color="#e9a5c8"/></linearGradient></defs>
-<rect width="300" height="440" fill="url(#wl)"/>
-<rect y="330" width="300" height="110" fill="#c98c5e"/>
-<g stroke="#a8693f" stroke-width="2" opacity=".5"><path d="M0 360H300M0 395H300M60 330L30 440M150 330V440M240 330L270 440"/></g>
-<rect x="196" y="40" width="86" height="230" rx="43" fill="#dff3ff" stroke="#fff" stroke-width="6"/>
-<path d="M214 80L250 150M226 70L262 130" stroke="#fff" stroke-width="4" opacity=".6"/>
-<g fill="#fff6a8"><circle cx="190" cy="80" r="5"/><circle cx="188" cy="130" r="5"/><circle cx="188" cy="180" r="5"/><circle cx="190" cy="230" r="5"/><circle cx="288" cy="80" r="5"/><circle cx="290" cy="130" r="5"/><circle cx="290" cy="180" r="5"/><circle cx="288" cy="230" r="5"/></g>
-<path d="M0 0H44Q30 120 44 330H0Z" fill="#b04a8a"/><path d="M44 0Q60 120 44 330" stroke="#8e3570" stroke-width="4" fill="none"/>
-<rect x="58" y="60" width="126" height="5" rx="2" fill="#8b6f9c"/>
-<path d="M72 66L62 124H92Z" fill="#ff7fb0"/><rect x="102" y="68" width="22" height="38" rx="5" fill="#4a90e2"/><path d="M142 66L130 132H164Z" fill="#ffd24d"/><path d="M172 66L166 112H186Z" fill="#a58be0"/>
-<ellipse cx="150" cy="402" rx="110" ry="22" fill="#ff7fb0" opacity=".7"/>
-</svg></div>
-<div class="bg" id="bgr"><svg viewBox="0 0 300 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-<rect width="300" height="440" fill="#0d0a1f"/>
-<rect x="30" y="20" width="240" height="140" rx="8" fill="#2b1d52" stroke="#ff7fb0" stroke-width="3"/>
-<text id="rwt" x="150" y="100" text-anchor="middle" fill="#ffd24d" font-size="22" font-family="Dela Gothic One,system-ui">RUNWAY</text>
-<g fill="#fff" opacity=".12"><path d="M60 0L10 440H110Z"/><path d="M240 0L190 440H290Z"/><path d="M150 0L100 440H200Z"/></g>
-<path d="M120 170H180L290 440H10Z" fill="#e8d9f5"/>
-<path d="M150 170V440" stroke="#bda5dd" stroke-width="2" stroke-dasharray="8 8"/>
-<path d="M120 170L10 440M180 170L290 440" stroke="#ff7fb0" stroke-width="5"/>
-<g fill="#fff6a8"><circle cx="112" cy="190" r="3"/><circle cx="96" cy="230" r="3.5"/><circle cx="76" cy="280" r="4"/><circle cx="52" cy="340" r="4.5"/><circle cx="188" cy="190" r="3"/><circle cx="204" cy="230" r="3.5"/><circle cx="224" cy="280" r="4"/><circle cx="248" cy="340" r="4.5"/></g>
-<g fill="#05030f"><circle cx="20" cy="396" r="14"/><rect x="6" y="408" width="28" height="34" rx="12"/><circle cx="62" cy="410" r="12"/><rect x="50" y="420" width="24" height="24" rx="10"/><circle cx="280" cy="396" r="14"/><rect x="266" y="408" width="28" height="34" rx="12"/><circle cx="238" cy="410" r="12"/><rect x="226" y="420" width="24" height="24" rx="10"/></g>
-<g fill="#fff"><circle class="fl" cx="30" cy="380" r="4"/><circle class="fl" style="animation-delay:.2s" cx="270" cy="372" r="4"/><circle class="fl" style="animation-delay:.4s" cx="60" cy="392" r="4"/><circle class="fl" style="animation-delay:.1s" cx="240" cy="396" r="4"/></g>
-</svg></div>
-<div id="av"></div></div>
-  <div>
-    <div class="tabs" id="tabs"></div>
-    <div class="panel" id="panel"></div>
+<section id="menu">
+  <div class="moon"></div>
+  <h1>Moon Slayer<br>Math Training</h1>
+  <p class="sub">Pick a skill. Beat the demon with 10 right answers. Every level gets a little harder!</p>
+  <div class="menu">
+    <button class="mode" data-m="add"><b>+</b>Add</button>
+    <button class="mode" data-m="sub"><b>−</b>Subtract</button>
+    <button class="mode" data-m="mul"><b>×</b>Multiply</button>
+    <button class="mode" data-m="div"><b>÷</b>Divide</button>
+    <button class="mode" data-m="mix" style="grid-column:span 2"><b>★</b>Mix of all</button>
   </div>
-</div>
+  <button class="pick" id="pick">📷 Use my own hero picture</button>
+  <input type="file" id="file" accept="image/*" class="hide">
+</section>
+
+<section id="game" class="hide">
+  <div class="top"><button class="back" id="back">‹ Menu</button><span id="count">Hit 0 / 10</span><span id="timer">⏱ 0:00</span><span id="stars">⭐ 0</span><button class="back" id="snd">🔊</button></div>
+  <div class="arena">
+    <div id="hero"><img id="heroimg" class="hide" alt="My hero"><svg id="herosvg" viewBox="0 0 90 120" aria-hidden="true">
+      <path d="M20 50c-8 30-4 52 4 64h12V60zM70 50c8 30 4 52-4 64H52V60z" fill="#2a2145"/>
+      <path d="M22 44c-2-22 14-34 28-30 14 3 20 16 16 32-6-10-14-14-22-14s-16 4-22 12z" fill="#2a2145"/>
+      <circle cx="44" cy="52" r="16" fill="#f3c9a5"/>
+      <path d="M26 48c6-12 30-14 36 0-8-5-28-5-36 0z" fill="#2a2145"/>
+      <rect x="27" y="45" width="36" height="5" fill="#ff7fb0"/>
+      <circle cx="38" cy="56" r="2.2" fill="#2a2145"/><circle cx="51" cy="56" r="2.2" fill="#2a2145"/>
+      <path d="M40 62q5 4 10 0" stroke="#a5534a" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M24 72h40l8 48H16z" fill="#2c3a7a"/>
+      <path d="M24 72h40l4 20H20z" fill="#a58be0" opacity=".55"/>
+      <rect x="36" y="76" width="16" height="44" fill="#f6ecc9" opacity=".2"/>
+      <path d="M70 70l16-48" stroke="#9fe9ff" stroke-width="5" stroke-linecap="round"/>
+      <path d="M68 76l8-3" stroke="#f6ecc9" stroke-width="5" stroke-linecap="round"/>
+    </svg></div>
+    <div id="demonbox">
+      <div class="hp"><i id="hp"></i></div>
+      <svg id="demon" viewBox="-14 0 128 120" aria-hidden="true">
+        <g fill="none" stroke="#6a3fa0" stroke-width="7" stroke-linecap="round"><path d="M22 50Q2 38-6 20"/><path d="M16 74Q-4 72-10 84"/><path d="M16 98Q-2 104-6 116"/><path d="M78 50Q98 38 106 20"/><path d="M84 80Q104 84 108 98"/><path d="M80 102Q100 108 106 118"/></g>
+        <g fill="#f6ecc9"><circle cx="-6" cy="20" r="4.5"/><circle cx="-10" cy="84" r="4.5"/><circle cx="-6" cy="116" r="4.5"/><circle cx="106" cy="20" r="4.5"/><circle cx="108" cy="98" r="4.5"/><circle cx="106" cy="118" r="4.5"/></g>
+        <path d="M30 28l-10-22 24 14zM70 28l10-22-24 14z" fill="#f6ecc9"/>
+        <path d="M14 112c-8-50 8-90 36-90s44 40 36 90z" fill="#6a3fa0"/>
+        
+        <g fill="#ffe14d"><ellipse cx="32" cy="44" rx="6" ry="7"/><ellipse cx="50" cy="44" rx="6" ry="7"/><ellipse cx="68" cy="44" rx="6" ry="7"/><ellipse cx="41" cy="64" rx="6" ry="7"/><ellipse cx="59" cy="64" rx="6" ry="7"/></g>
+        <g fill="#14162b"><rect x="30.5" y="38" width="3" height="12" rx="1.5"/><rect x="48.5" y="38" width="3" height="12" rx="1.5"/><rect x="66.5" y="38" width="3" height="12" rx="1.5"/><rect x="39.5" y="58" width="3" height="12" rx="1.5"/><rect x="57.5" y="58" width="3" height="12" rx="1.5"/></g>
+        <path d="M32 86q18 14 36 0l-4 12q-14 6-28 0z" fill="#14162b"/>
+        <path d="M38 88l3 7 3-6 3 7 3-7 3 6 3-7 3 8" stroke="#f6ecc9" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+  </div>
+  <div class="q" id="q"></div>
+  <div class="ans" id="ans"></div>
+  <div class="msg" id="msg"></div>
+  <div class="pad" id="pad"></div>
+</section>
+
+<section id="end" class="end hide">
+  <div class="moon"></div>
+  <h2 id="endt">Demon defeated!</h2>
+  <div class="stars" id="endstars"></div>
+  <p id="endp"></p>
+  <button class="again" id="again">Next level ›</button>
+  <button class="again" id="home" style="background:var(--wist);color:var(--night)">Menu</button>
+</section>
 </main>
+
 <script>
 (function(){
 var $=function(i){return document.getElementById(i)};
+var mode="add",done=0,firstTry=0,tries=0,cur=null,typed="",level=1;
+var T={add:[[1,9,1,9],[10,20,1,9],[10,50,10,50],[10,99,10,99],[100,500,10,99],[100,999,100,999]],
+sub:[[2,9,1,9],[10,20,1,9],[10,50,10,50],[10,99,10,99],[100,500,10,99],[100,999,100,999]],
+mul:[[2,5,2,5],[2,9,2,9],[2,12,2,12],[11,30,2,5],[11,50,2,9],[11,99,2,9]],
+div:[[2,5,2,5],[2,9,2,9],[2,12,2,12],[2,9,11,20],[2,9,11,50],[2,12,12,99]]};
+var cheers=["Great hit! ⚔️","Water Breathing! 🌊","Nice slash!","You’re strong!","Moonlight strike! 🌙"];
 function r(a,b){return Math.floor(Math.random()*(b-a+1))+a}
-function shuf(a){return a.slice().sort(function(){return Math.random()-.5})}
-var PAL=[["pink","#ff7fb0"],["red","#e63946"],["orange","#ff9f43"],["yellow","#ffd24d"],["green","#3fd0b4"],["blue","#4a90e2"],["purple","#a58be0"],["black","#2a2a3c"],["brown","#7a4a2a"]];
-var SK=["#f9d9c2","#f3c9a5","#d9a273","#8d5a3b"];
-function C(n){for(var i=0;i<PAL.length;i++)if(PAL[i][0]===n)return PAL[i][1];return"#fff"}
-var CAT={h:{t:"💇 Hair",col:"hc",it:[["Long",0],["Bob",0],["Buns",20],["Ponytail",30],["Pigtails",25],["Braid",35],["Pixie",25],["Curly",40]]},
-o:{t:"👗 Outfit",col:"oc",it:[["Tee & shorts",0],["Crop & skirt",30],["Hoodie",30],["Kimono",50],["Party dress",60],["Ball gown",90],["Jeans & tank",35],["Sun dress",45],["Jumpsuit",50],["Princess dress",110],["Superhero",80],["Winter coat",55]]},
-s:{t:"👠 Shoes",col:"sc",it:[["Sneakers",0],["Boots",25],["Heels",40],["Flats",15],["Sandals",25],["Roller skates",60],["Platforms",45]]},
-x:{t:"💍 Extras",col:"xc",it:[["None",0],["Crown",80],["Bow",20],["Glasses",30],["Wings",70],["Sunglasses",30],["Necklace",25],["Earrings",20],["Sun hat",50],["Handbag",35],["Cat ears",40]]}};
-var THEMES=[
-{n:"Pink Princess",e:"👑",c:["pink","purple"],o:[4,5,9],x:[1,2,6,7],s:[2,3]},
-{n:"Sporty Star",e:"⚽",c:["blue","green","orange"],o:[0,2,6],x:[3,5],s:[0,6]},
-{n:"Moonlight Night",e:"🌙",c:["black","purple","blue"],o:[3,5,11],x:[4,1,6],s:[1]},
-{n:"Sunny Day",e:"☀️",c:["yellow","orange","pink"],o:[1,0,7],x:[2,3,8],s:[0,4]},
-{n:"Fairy Forest",e:"🧚",c:["green","yellow","pink"],o:[1,4,7],x:[4,2,7],s:[2,3]},
-{n:"Super Hero",e:"⚡",c:["red","blue","yellow"],o:[10,8],x:[5,3],s:[1,5]},
-{n:"Winter Snow",e:"❄️",c:["blue","purple","pink"],o:[11,2],x:[6,7,2],s:[1]},
-{n:"Beach Day",e:"🏖️",c:["yellow","orange","blue"],o:[7,1],x:[8,5,9],s:[4,3]}];
-var NEED=100;
-var S={rp:0,coins:60,owned:{h0:1,h1:1,o0:1,s0:1,x0:1},eq:{h:0,o:0,s:0,x:0,hc:"brown",oc:"blue",sc:"black",xc:"pink"},pv:{},skin:1,ml:1,mc:0,st:0,tab:"math",q:null,msg:"",lock:false,th:null,res:null,walk:false,snd:true};
-try{var sv=JSON.parse(localStorage.getItem("ss_save")||"null");if(sv){S.coins=sv.c;S.owned=sv.ow;S.eq=sv.eq;S.skin=sv.skin;S.ml=sv.ml;S.rp=sv.rp||0}}catch(e){}
-function save(){try{localStorage.setItem("ss_save",JSON.stringify({c:S.coins,ow:S.owned,eq:S.eq,skin:S.skin,ml:S.ml,rp:S.rp}))}catch(e){}}
-var ac=null;
-function tone(f,t,d,ty,v){if(!S.snd)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();var o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+t;o.type=ty||"triangle";o.frequency.value=f;g.gain.setValueAtTime(v||.15,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.connect(g);g.connect(ac.destination);o.start(s);o.stop(s+d)}catch(e){}}
-function sfx(k){if(k==="ok"){tone(660,0,.12);tone(880,.1,.2)}else if(k==="bad"){tone(160,0,.28,"sawtooth",.12)}else if(k==="buy"){tone(1200,0,.08);tone(1600,.08,.25)}else if(k==="win"){[523,659,784,1047,1319].forEach(function(f,i){tone(f,i*.13,.3)})}}
-function mathQ(){
-  var k=Math.min(S.ml,6),M=[9,20,50,99,500,999][k-1],F=[5,9,12,12,12,15][k-1],m=r(0,3),a,b,t,ans;
-  if(m===0){a=r(1,M);b=r(1,Math.min(M,99));t=a+" + "+b;ans=a+b}
-  else if(m===1){a=r(2,M);b=r(1,Math.min(a-1,M));t=a+" − "+b;ans=a-b}
-  else if(m===2){a=r(2,F);b=r(2,k>3?12:F);t=a+" × "+b;ans=a*b}
-  else{b=r(2,F);var q=r(2,k>3?12:F);t=(b*q)+" ÷ "+b;ans=q}
-  var set=[ans],g=0;
-  while(set.length<4&&g++<60){var d=ans+[-1,1,-2,2,-10,10,3,-3][r(0,7)];if(d>=0&&set.indexOf(d)<0)set.push(d)}
-  while(set.length<4)set.push(ans+set.length+10);
-  return{q:t+" = ?",a:ans,o:shuf(set)}
+function make(m){
+  if(m==="mix")m=["add","sub","mul","div"][r(0,3)];
+  var p=T[m][Math.min(level,6)-1],a=r(p[0],p[1]),b=r(p[2],p[3]),t;
+  if(m==="add"){return{t:a+" + "+b,a:a+b}}
+  if(m==="sub"){if(b>a){t=a;a=b;b=t}if(a===b)a+=1;return{t:a+" − "+b,a:a-b}}
+  if(m==="mul"){return{t:a+" × "+b,a:a*b}}
+  return{t:(a*b)+" ÷ "+a,a:b}
 }
-var OF=[
-'<path d="M76 96Q100 108 124 96L136 132L122 140L121 162Q100 170 79 162L78 140L64 132Z" fill="@"/><path d="M80 166Q100 174 120 166L132 234L102 238L100 214L98 238L68 234Z" fill="#3a5a98"/>',
-'<path d="M78 96Q100 108 122 96L125 142Q100 152 75 142Z" fill="@"/><path d="M76 150Q100 160 124 150L150 252Q100 266 50 252Z" fill="@" opacity=".92"/><path d="M76 150Q100 160 124 150" stroke="#fff7" stroke-width="3" fill="none"/>',
-'<path d="M78 166Q100 176 122 166L125 362L103 362L100 232L97 362L75 362Z" fill="#3a3f6a"/><path d="M72 96Q100 110 128 96L144 198L128 202L124 178L122 192Q100 198 78 192L76 178L72 202L56 198Z" fill="@"/><path d="M84 98Q100 122 116 98" fill="none" stroke="#0005" stroke-width="4"/>',
-'<path d="M76 96L100 122L124 96L134 300Q100 314 66 300Z" fill="@"/><path d="M76 98L44 182L70 188L84 128Z" fill="@"/><path d="M124 98L156 182L130 188L116 128Z" fill="@"/><path d="M82 96L100 150L118 96" stroke="#fff9" stroke-width="5" fill="none"/><rect x="72" y="150" width="56" height="20" rx="4" fill="#ffd24d"/>',
-'<path d="M78 96Q100 106 122 96L124 150Q100 160 76 150Z" fill="@"/><path d="M76 148Q100 160 124 148L160 266Q100 284 40 266Z" fill="@"/><g fill="#fff9"><circle cx="82" cy="200" r="4"/><circle cx="110" cy="216" r="4"/><circle cx="132" cy="196" r="4"/><circle cx="96" cy="244" r="4"/></g>',
-'<path d="M76 96Q100 108 124 96L122 160Q100 170 78 160Z" fill="@"/><path d="M78 158Q100 170 122 158L170 368Q100 382 30 368Z" fill="@"/><rect x="76" y="156" width="48" height="8" fill="#fff6"/><g fill="#fff9"><circle cx="70" cy="290" r="4"/><circle cx="132" cy="310" r="4"/><circle cx="100" cy="250" r="4"/><circle cx="60" cy="340" r="4"/></g>',
-'<path d="M78 166Q100 176 122 166L125 362L103 362L100 232L97 362L75 362Z" fill="#4a7bc4"/><path d="M82 96Q100 108 118 96L122 162Q100 170 78 162Z" fill="@"/>',
-'<path d="M80 96Q100 108 120 96L124 146Q100 156 76 146Z" fill="@"/><path d="M76 144Q100 154 124 144L140 236Q100 248 60 236Z" fill="@"/><path d="M86 98L84 120M114 98L116 120" stroke="#fff8" stroke-width="3"/>',
-'<path d="M76 96Q100 108 124 96L128 166L125 360L103 360L100 232L97 360L75 360L72 166Z" fill="@"/><path d="M76 98L58 132L72 140L86 112Z" fill="@"/><path d="M124 98L142 132L128 140L114 112Z" fill="@"/><rect x="74" y="158" width="52" height="8" fill="#fff6"/>',
-'<path d="M76 150Q100 160 124 150L178 318Q100 340 22 318Z" fill="@"/><path d="M78 96Q100 106 122 96L122 152Q100 160 78 152Z" fill="@"/><circle cx="68" cy="108" r="12" fill="@"/><circle cx="132" cy="108" r="12" fill="@"/><path d="M22 318Q100 340 178 318" stroke="#fff9" stroke-width="5" fill="none"/><g fill="#fff9"><circle cx="80" cy="220" r="4"/><circle cx="124" cy="250" r="4"/><circle cx="96" cy="290" r="4"/></g>',
-'<path d="M70 98L38 252L76 222Z" fill="#ff4d6d"/><path d="M130 98L162 252L124 222Z" fill="#ff4d6d"/><path d="M78 96Q100 106 122 96L124 190Q100 204 76 190Z" fill="@"/><rect x="76" y="168" width="48" height="8" fill="#ffd24d"/><circle cx="100" cy="126" r="9" fill="#ffd24d"/>',
-'<path d="M70 96Q100 112 130 96L144 272L106 278L100 150L94 278L56 272Z" fill="@"/><ellipse cx="100" cy="100" rx="32" ry="9" fill="#fff"/><g fill="#fff9"><circle cx="106" cy="170" r="3"/><circle cx="106" cy="200" r="3"/><circle cx="106" cy="230" r="3"/></g>'];
-var SH=[
-'<ellipse cx="88" cy="374" rx="15" ry="8" fill="@"/><ellipse cx="112" cy="374" rx="15" ry="8" fill="@"/><path d="M74 381H102M98 381H126" stroke="#fff" stroke-width="3"/>',
-'<path d="M79 306H97L99 372H77Z" fill="@"/><path d="M103 306H121L123 372H101Z" fill="@"/><ellipse cx="86" cy="376" rx="16" ry="8" fill="@"/><ellipse cx="114" cy="376" rx="16" ry="8" fill="@"/>',
-'<ellipse cx="88" cy="372" rx="11" ry="6" fill="@"/><ellipse cx="112" cy="372" rx="11" ry="6" fill="@"/><rect x="80" y="374" width="3" height="14" fill="@"/><rect x="117" y="374" width="3" height="14" fill="@"/>',
-'<ellipse cx="88" cy="372" rx="12" ry="6" fill="@"/><ellipse cx="112" cy="372" rx="12" ry="6" fill="@"/><path d="M80 366L96 366M104 366L120 366" stroke="#fff8" stroke-width="2"/>',
-'<g fill="@"><rect x="76" y="371" width="24" height="5" rx="2"/><rect x="100" y="371" width="24" height="5" rx="2"/></g><path d="M82 360L92 372M94 360L84 372M118 360L108 372M106 360L116 372" stroke="@" stroke-width="2.5"/>',
-'<rect x="76" y="360" width="26" height="14" rx="5" fill="@"/><rect x="100" y="360" width="26" height="14" rx="5" fill="@"/><g fill="#fff"><circle cx="82" cy="380" r="4"/><circle cx="96" cy="380" r="4"/><circle cx="106" cy="380" r="4"/><circle cx="120" cy="380" r="4"/></g>',
-'<rect x="76" y="362" width="26" height="14" rx="6" fill="@"/><rect x="100" y="362" width="26" height="14" rx="6" fill="@"/><rect x="76" y="376" width="26" height="9" rx="3" fill="#fff"/><rect x="100" y="376" width="26" height="9" rx="3" fill="#fff"/>'];
-var HB=["M72 46C58 120 64 184 78 216L122 216C136 184 142 120 128 46Z","M70 40C62 64 64 100 76 112Q100 122 124 112C136 100 138 64 130 40Z","","M124 40C158 52 166 112 148 154C142 122 138 82 124 58Z","M74 40C48 62 42 112 54 152C66 122 70 82 76 56ZM126 40C152 62 158 112 146 152C134 122 130 82 124 56Z","M70 40C62 64 64 100 76 112Q100 122 124 112C136 100 138 64 130 40Z","M72 40C66 56 68 64 74 70L126 70C132 64 134 56 128 40Z",""];
-var HC={2:'<g fill="@"><circle cx="76" cy="20" r="15"/><circle cx="124" cy="20" r="15"/></g>',7:'<g fill="@"><circle cx="70" cy="40" r="18"/><circle cx="130" cy="40" r="18"/><circle cx="62" cy="68" r="16"/><circle cx="138" cy="68" r="16"/><circle cx="64" cy="98" r="15"/><circle cx="136" cy="98" r="15"/><circle cx="100" cy="22" r="20"/><circle cx="82" cy="26" r="16"/><circle cx="118" cy="26" r="16"/></g>'};
-var HF={5:'<g fill="@"><ellipse cx="70" cy="118" rx="10" ry="13"/><ellipse cx="68" cy="144" rx="10" ry="13"/><ellipse cx="66" cy="170" rx="9" ry="13"/><ellipse cx="64" cy="194" rx="8" ry="12"/></g><ellipse cx="64" cy="212" rx="5" ry="6" fill="#ff7fb0"/>'};
-var XT={5:'<g fill="@" opacity=".9"><rect x="79" y="48" width="20" height="12" rx="5"/><rect x="101" y="48" width="20" height="12" rx="5"/><rect x="98" y="52" width="4" height="3"/></g>',6:'<path d="M88 100Q100 124 112 100" stroke="@" stroke-width="3" fill="none"/><circle cx="100" cy="118" r="5" fill="@"/>',7:'<circle cx="76" cy="66" r="4" fill="@"/><circle cx="124" cy="66" r="4" fill="@"/>',8:'<ellipse cx="100" cy="30" rx="46" ry="9" fill="@"/><path d="M72 30Q74 6 100 6Q126 6 128 30Z" fill="@"/><rect x="72" y="22" width="56" height="6" fill="#fff8"/>',9:'<rect x="44" y="204" width="28" height="22" rx="5" fill="@"/><path d="M50 204Q58 188 66 204" stroke="@" stroke-width="3" fill="none"/>',10:'<path d="M78 28L82 4L96 22ZM122 28L118 4L104 22Z" fill="@"/><path d="M76 30Q100 14 124 30" stroke="@" stroke-width="4" fill="none"/>'};
-function look(){var q={};for(var k in S.eq)q[k]=S.eq[k];for(var p in S.pv)q[p]=S.pv[p];return q}
-function av(){
-  var q=look(),sk=SK[S.skin],hc=C(q.hc),oc=C(q.oc),sc=C(q.sc),xc=C(q.xc),o="";
-  if(q.x===4)o+='<g fill="'+xc+'" opacity=".7"><ellipse cx="36" cy="140" rx="34" ry="70" transform="rotate(-18 36 140)"/><ellipse cx="164" cy="140" rx="34" ry="70" transform="rotate(18 164 140)"/></g>';
-  if(HC[q.h])o+=HC[q.h].replace(/@/g,hc);else o+='<path d="'+HB[q.h]+'" fill="'+hc+'"/>';
-  if(q.h===3)o+='<ellipse cx="124" cy="42" rx="5" ry="7" fill="#ff7fb0"/>';
-  o+='<g fill="'+sk+'"><path d="M91 72V98Q100 106 109 98V72Z"/><path d="M76 96Q72 130 82 168Q70 196 73 218L127 218Q130 196 118 168Q128 130 124 96Z"/>';
-  o+='<path d="M73 216Q72 270 82 302Q80 340 85 370L96 370Q98 332 96 302Q100 262 100 222Z"/><path d="M127 216Q128 270 118 302Q120 340 115 370L104 370Q102 332 104 302Q100 262 100 222Z"/>';
-  o+='<path d="M76 98Q58 130 54 196L64 198Q70 150 86 114Z"/><path d="M124 98Q142 130 146 196L136 198Q130 150 114 114Z"/><ellipse cx="59" cy="204" rx="6" ry="9"/><ellipse cx="141" cy="204" rx="6" ry="9"/></g>';
-  o+='<g fill="#000" opacity=".07"><path d="M100 222Q98 262 96 302Q98 332 96 370L104 370Q102 332 104 302Q102 262 100 222Z"/><path d="M118 168Q128 130 124 96L116 100Q120 134 112 168Z"/></g>';
-  o+=OF[q.o].replace(/@/g,oc)+SH[q.s].replace(/@/g,sc);
-  if(HF[q.h])o+=HF[q.h].replace(/@/g,hc);
-  o+='<ellipse cx="76" cy="54" rx="3.5" ry="6" fill="'+sk+'"/><ellipse cx="124" cy="54" rx="3.5" ry="6" fill="'+sk+'"/><ellipse cx="100" cy="52" rx="24" ry="28" fill="'+sk+'"/>';
-  o+='<ellipse cx="90" cy="54" rx="5.5" ry="3.6" fill="#fff"/><ellipse cx="110" cy="54" rx="5.5" ry="3.6" fill="#fff"/><circle cx="90" cy="54" r="3" fill="#4a2f22"/><circle cx="110" cy="54" r="3" fill="#4a2f22"/><circle cx="91" cy="53" r="1" fill="#fff"/><circle cx="111" cy="53" r="1" fill="#fff"/>';
-  o+='<path d="M84 51Q90 47 96 51M104 51Q110 47 116 51" stroke="#2a1a14" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M83 44Q90 41 97 44M103 44Q110 41 117 44" stroke="'+hc+'" stroke-width="2" fill="none"/>';
-  o+='<path d="M100 57Q103 65 99 66" stroke="#c9946f" stroke-width="1.6" fill="none"/><path d="M92 72Q100 79 108 72Q100 74 92 72Z" fill="#d9566e"/><circle cx="82" cy="65" r="5" fill="#ff8aa0" opacity=".35"/><circle cx="118" cy="65" r="5" fill="#ff8aa0" opacity=".35"/>';
-  o+='<path d="M74 54C70 18 130 14 126 54C122 40 108 32 98 34C88 36 78 44 74 54Z" fill="'+hc+'"/><path d="M84 34Q100 26 116 36" stroke="#fff" stroke-opacity=".3" stroke-width="3" fill="none"/>';
-  if(q.x===1)o+='<path d="M80 30L84 6L93 20L100 2L107 20L116 6L120 30Z" fill="'+xc+'"/>';
-  if(q.x===2)o+='<g fill="'+xc+'"><path d="M122 30L104 20V42Z"/><path d="M122 30L140 20V42Z"/><circle cx="122" cy="30" r="4"/></g>';
-  if(q.x===3)o+='<g fill="none" stroke="'+xc+'" stroke-width="3"><circle cx="90" cy="54" r="9"/><circle cx="110" cy="54" r="9"/><path d="M99 54H101"/></g>';
-  if(XT[q.x])o+=XT[q.x].replace(/@/g,xc);
-  $("av").innerHTML='<svg viewBox="0 0 200 400" aria-hidden="true">'+o+'</svg>'
-}
-function swatches(key){
-  var cur=look()[key],h='<div class="sw">';
-  PAL.forEach(function(p){h+='<button data-a="col" data-k="'+key+'" data-v="'+p[0]+'" class="'+(cur===p[0]?"sel":"")+'" style="background:'+p[1]+'"></button>'});
-  return h+'</div>'
-}
-function bar(){var p=Math.min(100,Math.round(S.rp/NEED*100));return '<div style="background:#0c0d1c;border-radius:10px;height:18px;overflow:hidden;border:2px solid #a58be0;margin-top:8px"><i style="display:block;height:100%;width:'+p+'%;background:#ff7fb0"></i></div><div class="note">🎟️ Runway ticket: '+Math.min(S.rp,NEED)+' / '+NEED+' ✨</div>'}
-function panel(){
-  var t=S.tab,h="";
-  if(t==="math"){
-    if(!S.q)S.q=mathQ();
-    h='<div class="mq big">'+S.q.q+'</div><div class="ch">';
-    S.q.o.forEach(function(v){h+='<button data-a="ans" data-v="'+v+'">'+v+'</button>'});
-    h+='</div><div class="m">'+S.msg+'</div>'+bar()+'<div class="note">Level '+S.ml+' · Collect '+NEED+' ✨ to open the runway!</div>'
-  }else if(t==="show"){
-    if(!S.th)S.th=THEMES[r(0,THEMES.length-1)];
-    var T=S.th;
-    h='<div class="theme">Today’s theme:<div class="big">'+T.e+' '+T.n+'</div>Colors to try: <b>'+T.c.join(", ")+'</b></div>';
-    if(S.res){h+='<div class="stars">'+"⭐".repeat(S.res.s)+"☆".repeat(5-S.res.s)+'</div><div class="m">'+S.res.t+'</div><button class="go" data-a="next">New theme ›</button>'}
-    else if(S.rp<NEED)h+='<div class="note" style="margin:14px 0">🔒 The runway is locked. Answer math questions to collect '+NEED+' ✨ for your ticket!</div>'+bar()+'<button class="go" data-a="tomath">🧮 Go to Math</button>';
-    else h+='<div class="note" style="margin:14px 0">🎟️ Ticket ready! Dress up in the theme, then walk the runway!</div><button class="go" data-a="walk">🎀 Walk the runway!</button>'
+var t0=0,tick=null,ac=null,snd=true;
+function tone(f,t,d,ty,v){if(!snd)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();var o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+t;o.type=ty||"triangle";o.frequency.value=f;g.gain.setValueAtTime(v||.15,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.connect(g);g.connect(ac.destination);o.start(s);o.stop(s+d)}catch(e){}}
+function sfx(k){if(k==="ok"){tone(660,0,.12);tone(880,.1,.2)}else if(k==="bad"){tone(160,0,.25,"sawtooth",.12)}else if(k==="win"){[523,659,784,1047].forEach(function(f,i){tone(f,i*.14,.3)})}else if(k==="key"){tone(440,0,.04,"sine",.06)}}
+function fmt(s){return Math.floor(s/60)+":"+("0"+(s%60)).slice(-2)}
+function startTimer(){clearInterval(tick);t0=Date.now();$("timer").textContent="⏱ 0:00";tick=setInterval(function(){$("timer").textContent="⏱ "+fmt(Math.floor((Date.now()-t0)/1000))},500)}
+function stopTimer(){clearInterval(tick);return Math.round((Date.now()-t0)/1000)}
+function show(id){["menu","game","end"].forEach(function(s){$(s).classList.toggle("hide",s!==id)})}
+function setAns(){$("ans").textContent=typed}
+function next(){cur=make(mode);tries=0;typed="";$("q").textContent=cur.t+" =";setAns();$("count").textContent="Level "+level+" · Hit "+done+" / 10"}
+function start(m){mode=m;done=0;firstTry=0;$("hp").style.width="100%";$("msg").textContent="Ready? Go!";show("game");next();startTimer();$("stars").textContent="⭐ 0"}
+function anim(el,c){el.classList.remove(c);void el.offsetWidth;el.classList.add(c)}
+function check(){
+  if(typed==="")return;
+  if(+typed===cur.a){
+    if(tries===0){firstTry++;$("stars").textContent="⭐ "+firstTry}
+    done++;$("hp").style.width=(100-done*10)+"%";
+    sfx("ok");anim($("hero"),"slash");anim($("demon"),"hit");
+    $("msg").textContent=cheers[r(0,cheers.length-1)];
+    if(done>=10){setTimeout(finish,600);return}
+    setTimeout(next,450)
   }else{
-    var c=CAT[t],q=look();
-    h='<div class="items">';
-    c.it.forEach(function(it,i){h+='<button class="it'+(q[t]===i?" sel":"")+'" data-a="item" data-i="'+i+'">'+it[0]+'<small>'+(S.owned[t+i]?"✓ yours":"✨ "+it[1])+'</small></button>'});
-    h+='</div>';
-    var pv=S.pv[t];
-    if(pv!==undefined&&!S.owned[t+pv]){var cost=c.it[pv][1];h+='<button class="buy" data-a="buy" '+(S.coins<cost?"disabled":"")+'>'+(S.coins<cost?"Need "+(cost-S.coins)+" more ✨ (play Math!)":"Buy for ✨ "+cost)+'</button>'}
-    h+='<div class="lab">Color</div>'+swatches(c.col);
-    if(t==="h"){h+='<div class="lab">Skin</div><div class="sw">';SK.forEach(function(s,i){h+='<button data-a="skin" data-v="'+i+'" class="'+(S.skin===i?"sel":"")+'" style="background:'+s+'"></button>'});h+='</div>'}
+    tries++;sfx("bad");anim($("ans"),"bad");$("ans").classList.add("bad");
+    setTimeout(function(){$("ans").classList.remove("bad")},400);
+    if(tries>=2){$("msg").textContent="The answer is "+cur.a+". Next one!";done=done;setTimeout(next,1800);return}
+    $("msg").textContent="Almost! Try one more time.";typed="";setAns()
   }
-  $("panel").innerHTML=h
 }
-function render(){
-  $("coins").textContent="✨ "+S.coins;
-  var tb="";[["math","🧮 Math"],["h","💇 Hair"],["o","👗 Outfit"],["s","👠 Shoes"],["x","💍 Extras"],["show",S.rp>=NEED?"🎀 Show":"🔒 Show"]].forEach(function(x){tb+='<button data-t="'+x[0]+'" class="'+(S.tab===x[0]?"on":"")+'">'+x[1]+'</button>'});
-  $("tabs").innerHTML=tb;av();panel()
+function finish(){sfx("win");var secs=stopTimer();
+  show("end");
+  var s=firstTry>=9?3:firstTry>=7?2:1;
+  $("endstars").textContent="⭐⭐⭐".slice(0,s)+"☆☆☆".slice(0,3-s);
+  $("endp").textContent="You got "+firstTry+" of 10 right on the first try. Time: "+fmt(secs)+". The next demon is a little harder!";
+  $("endt").textContent="Level "+level+(s===3?" done! Perfect slash!":" done! Demon defeated!")
 }
-function setTab(t){S.tab=t;S.pv={};S.res=null;render()}
-function answer(v){
-  if(S.lock)return;S.lock=true;
-  if(+v===S.q.a){
-    var g=10+(S.st>=2?5:0),was=S.rp;S.coins+=g;S.rp+=g;S.st++;S.mc++;sfx("ok");S.msg="+"+g+" ✨ "+(S.st>=3?"Streak "+S.st+"! 🔥":"Great!");
-    if(was<NEED&&S.rp>=NEED)S.msg+=" 🎟️ Runway open!";
-    if(S.mc%5===0){S.ml++;S.msg+=" Level up! ⚡"}
-    save()
-  }else{S.st=0;sfx("bad");S.msg="Answer: "+S.q.a+". Try the next one!"}
-  render();
-  setTimeout(function(){S.q=mathQ();S.lock=false;if(S.tab==="math"){S.msg="";panel()}},S.msg.indexOf("Answer")===0?1700:800)
-}
-function walk(){if(S.rp<NEED)return;S.rp-=NEED;save();
-  S.pv={};var q=S.eq,T=S.th,m=0,n=[];
-  if(T.c.indexOf(q.oc)>-1)m++;else n.push("try "+T.c[0]+" for your outfit");
-  if(T.o.indexOf(q.o)>-1)m++;else n.push("pick "+CAT.o.it[T.o[0]][0]);
-  if(T.x.indexOf(q.x)>-1)m++;else n.push("add "+CAT.x.it[T.x[0]][0]);
-  if(T.c.indexOf(q.sc)>-1||T.s.indexOf(q.s)>-1)m++;else n.push("change your shoes");
-  if(T.c.indexOf(q.hc)>-1)m++;else n.push("a "+T.c[0]+" hair color");
-  var s=Math.min(5,1+m),g=s*15;
-  $("rwt").textContent=T.e+" "+T.n;$("stage").classList.add("walk");sfx("win");
-  setTimeout(function(){
-    $("stage").classList.remove("walk");S.coins+=g;save();
-    S.res={s:s,t:(s>=5?"WOW! Perfect look! ":s>=3?"Great style! ":"Nice try! ")+"+"+g+" ✨"+(n.length&&s<5?" · Tip: "+n[0]:"")};
-    render()
-  },3100)
-}
-document.addEventListener("click",function(e){
-  var b=e.target.closest("button");if(!b)return;
-  if(b.id==="snd"){S.snd=!S.snd;b.textContent=S.snd?"🔊":"🔇";return}
-  if(b.dataset.t){setTab(b.dataset.t);return}
-  var a=b.dataset.a,t=S.tab;if(!a)return;
-  if(a==="ans")answer(b.dataset.v);
-  else if(a==="item"){var i=+b.dataset.i;if(S.owned[t+i]){S.eq[t]=i;delete S.pv[t];save()}else S.pv[t]=i;render()}
-  else if(a==="buy"){var i2=S.pv[t],cost=CAT[t].it[i2][1];if(S.coins>=cost){S.coins-=cost;S.owned[t+i2]=1;S.eq[t]=i2;delete S.pv[t];sfx("buy");save()}render()}
-  else if(a==="col"){S.eq[b.dataset.k]=b.dataset.v;save();render()}
-  else if(a==="skin"){S.skin=+b.dataset.v;save();render()}
-  else if(a==="walk")walk();
-  else if(a==="tomath")setTab("math");
-  else if(a==="next"){S.th=null;S.res=null;render()}
+var keys=["1","2","3","4","5","6","7","8","9","⌫","0","Go"];
+keys.forEach(function(k){
+  var b=document.createElement("button");b.textContent=k;
+  if(k==="⌫")b.className="del";if(k==="Go")b.className="go";
+  b.addEventListener("click",function(){
+    sfx("key");if(k==="⌫")typed=typed.slice(0,-1);
+    else if(k==="Go"){check();return}
+    else if(typed.length<5)typed+=k;
+    setAns()
+  });
+  $("pad").appendChild(b)
 });
-render()
+Array.prototype.forEach.call(document.querySelectorAll(".mode"),function(b){b.addEventListener("click",function(){level=1;start(b.dataset.m)})});
+$("pick").addEventListener("click",function(){$("file").click()});
+$("file").addEventListener("change",function(e){
+  var f=e.target.files&&e.target.files[0];if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){$("heroimg").src=rd.result;$("heroimg").classList.remove("hide");$("herosvg").classList.add("hide");$("pick").textContent="✅ Picture added! Tap to change"};
+  rd.readAsDataURL(f)
+});
+$("back").addEventListener("click",function(){clearInterval(tick);show("menu")});
+$("home").addEventListener("click",function(){show("menu")});
+$("again").addEventListener("click",function(){level++;start(mode)});
+$("snd").addEventListener("click",function(){snd=!snd;$("snd").textContent=snd?"🔊":"🔇"});
 })();
 </script>
 </body>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demon Hunt Arcade</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@500;800&display=swap">
+<style>
+:root{--night:#14162b;--deep:#1f2347;--moon:#f6ecc9;--ember:#ff5a3c;--wist:#a58be0;--teal:#3fd0b4;--gold:#ffd24d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+html,body{margin:0;min-height:100%}
+body{background:var(--night);color:var(--moon);font-family:"M PLUS Rounded 1c",system-ui,sans-serif;font-weight:500}
+h1,h2,.big{font-family:"Dela Gothic One",system-ui,sans-serif;font-weight:400;margin:0}
+main{max-width:820px;margin:0 auto;padding:14px 16px 30px}
+.hide{display:none!important}
+.moon{width:70px;height:70px;border-radius:50%;background:var(--moon);box-shadow:0 0 40px rgba(246,236,201,.45);margin:10px auto}
+h1{font-size:clamp(30px,7vw,48px);text-align:center;line-height:1.15}
+.sub{text-align:center;font-size:20px;margin:10px 0 24px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mode{border:3px solid var(--wist);background:var(--deep);color:var(--moon);border-radius:18px;padding:18px 10px;font:inherit;font-weight:800;font-size:22px;min-height:104px}
+.mode b{display:block;font-size:36px}
+.mode:active{background:var(--wist);color:var(--night)}
+.hud{display:flex;justify-content:space-between;align-items:center;gap:8px;font-weight:800;font-size:20px;margin-bottom:8px}
+.hud .big{font-size:24px;color:var(--gold)}
+.hearts{font-size:26px;letter-spacing:3px;color:var(--ember)}
+.small{background:none;border:2px solid var(--wist);color:var(--moon);border-radius:12px;padding:6px 12px;font:inherit;font-weight:800;font-size:18px}
+#qbox{background:var(--deep);border:3px solid var(--wist);border-radius:18px;text-align:center;padding:10px 12px;min-height:96px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+#q{font-family:"Dela Gothic One",system-ui,sans-serif;font-size:clamp(34px,8vw,58px)}
+#qs{font-size:19px;margin-top:2px}
+.bar{height:10px;background:#0c0d1c;border-radius:6px;overflow:hidden;margin:10px 0}
+.bar i{display:block;height:100%;width:0;background:var(--teal)}
+#field{position:relative;height:clamp(300px,50vh,470px);overflow:hidden;border-radius:18px;background:linear-gradient(#1b1f45,#2b2358 70%,#3a2a5c);border:2px solid rgba(165,139,224,.4)}
+#field:before{content:"";position:absolute;top:14px;right:24px;width:46px;height:46px;border-radius:50%;background:var(--moon);box-shadow:0 0 30px rgba(246,236,201,.5)}
+#lane{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-around;padding:0 6px;will-change:transform}
+.d{position:relative;border:0;background:none;color:var(--moon);font:inherit;width:31%;display:flex;flex-direction:column;align-items:center;padding:0}
+.d svg{width:min(100%,120px);height:auto;animation:bob 1.2s ease-in-out infinite}
+.d:nth-child(2) svg{animation-delay:.4s}.d:nth-child(3) svg{animation-delay:.8s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.lab{font-family:"Dela Gothic One",system-ui,sans-serif;font-size:clamp(20px,4.2vw,32px);background:#0c0d1c;border:3px solid var(--wist);border-radius:14px;padding:6px 10px;margin-top:-6px;max-width:100%;overflow-wrap:anywhere}
+.d:active .lab{background:var(--wist);color:var(--night)}
+.d.gone{opacity:.15;pointer-events:none}
+.d.good .lab{border-color:var(--teal);background:#0f3b36}
+.d.pop{animation:pop .5s forwards}@keyframes pop{to{transform:scale(1.6) rotate(20deg);opacity:0}}
+#hero{position:absolute;left:50%;bottom:0;width:70px;margin-left:-35px;transition:transform .15s}
+#hero.slash{transform:translateY(-40px) rotate(-12deg)}
+#hero svg{width:100%;height:auto;display:block}
+#msg{position:absolute;left:0;right:0;bottom:84px;text-align:center;font-family:"Dela Gothic One",system-ui,sans-serif;font-size:clamp(24px,6vw,40px);color:var(--gold);text-shadow:0 3px 0 #000;pointer-events:none}
+.end{text-align:center;padding-top:16px}
+.end h2{font-size:clamp(30px,7vw,46px);margin:14px 0}
+.end p{font-size:22px;margin:8px 0}
+.again{border:0;border-radius:16px;background:var(--ember);color:#fff;font-family:"Dela Gothic One",system-ui,sans-serif;font-size:26px;padding:18px 34px;margin:10px 6px}
+@media (prefers-reduced-motion:reduce){.d svg{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="dm" viewBox="0 0 100 100">
+<path d="M26 22L16 2l24 12zM74 22L84 2 60 14z" fill="#f6ecc9"/>
+<path d="M10 96C2 50 20 12 50 12s48 38 40 84z" fill="#6a3fa0"/>
+<g fill="#ffe14d"><ellipse cx="32" cy="42" rx="7" ry="8"/><ellipse cx="50" cy="38" rx="7" ry="8"/><ellipse cx="68" cy="42" rx="7" ry="8"/></g>
+<g fill="#14162b"><rect x="30.5" y="35" width="3" height="14" rx="1.5"/><rect x="48.5" y="31" width="3" height="14" rx="1.5"/><rect x="66.5" y="35" width="3" height="14" rx="1.5"/></g>
+<path d="M28 66q22 16 44 0l-4 14q-18 8-36 0z" fill="#14162b"/>
+<path d="M34 68l4 8 4-7 4 8 4-8 4 7 4-8 4 8" stroke="#f6ecc9" stroke-width="2" fill="none"/>
+</symbol></defs></svg>
+<main>
+<section id="menu">
+  <div class="moon"></div>
+  <h1>Demon Hunt<br>Arcade</h1>
+  <p class="sub">Demons carry answers and come down fast. Tap the right one to slash it!</p>
+  <div class="menu">
+    <button class="mode" data-m="math"><b>➕</b>Math</button>
+    <button class="mode" data-m="spell"><b>🔤</b>Spelling</button>
+    <button class="mode" data-m="both" style="grid-column:span 2"><b>⚔️</b>Both (Mix)</button>
+  </div>
+  <p class="sub" id="bestm" style="margin-top:22px"></p>
+</section>
+
+<section id="game" class="hide">
+  <div class="hud"><button class="small" id="back">‹ Menu</button><span class="hearts" id="hearts"></span><span class="big" id="score">0</span><span id="lvl">Lv 1</span><button class="small" id="snd">🔊</button></div>
+  <div id="qbox"><div id="q"></div><div id="qs"></div></div>
+  <div class="bar"><i id="tb"></i></div>
+  <div id="field">
+    <div id="lane"></div>
+    <div id="msg"></div>
+    <div id="hero"><svg viewBox="0 0 90 120" aria-hidden="true">
+      <path d="M20 50c-8 30-4 52 4 64h12V60zM70 50c8 30 4 52-4 64H52V60z" fill="#2a2145"/>
+      <path d="M22 44c-2-22 14-34 28-30 14 3 20 16 16 32-6-10-14-14-22-14s-16 4-22 12z" fill="#2a2145"/>
+      <circle cx="44" cy="52" r="16" fill="#f3c9a5"/>
+      <path d="M26 48c6-12 30-14 36 0-8-5-28-5-36 0z" fill="#2a2145"/>
+      <rect x="27" y="45" width="36" height="5" fill="#ff7fb0"/>
+      <circle cx="38" cy="56" r="2.2" fill="#2a2145"/><circle cx="51" cy="56" r="2.2" fill="#2a2145"/>
+      <path d="M40 62q5 4 10 0" stroke="#a5534a" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M24 72h40l8 48H16z" fill="#2c3a7a"/><path d="M24 72h40l4 20H20z" fill="#a58be0" opacity=".55"/>
+      <path d="M70 70l16-48" stroke="#9fe9ff" stroke-width="5" stroke-linecap="round"/>
+    </svg></div>
+  </div>
+</section>
+
+<section id="end" class="end hide">
+  <div class="moon"></div>
+  <h2>Game over!</h2>
+  <p id="e1"></p><p id="e2"></p>
+  <button class="again" id="again">Play again</button>
+  <button class="again" id="home" style="background:var(--wist);color:var(--night)">Menu</button>
+</section>
+</main>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var W=[
+"cat dog sun red jump bird fish milk tree book star moon rain play home".split(" "),
+"friend house water apple happy green light night sleep pencil school mother family".split(" "),
+"because again people little animal answer around bridge circle flower garden kitchen orange purple".split(" "),
+"different favorite together thought through enough journey mountain library building brother country weather yesterday".split(" "),
+"february wednesday calendar special believe neighbor surprise usually beginning exercise minute ocean probably science".split(" "),
+"necessary separate definitely restaurant discover experience environment tomorrow knowledge guarantee vegetable interesting adventure language".split(" ")];
+var PIC={cat:"🐱",dog:"🐶",sun:"☀️",red:"🔴",jump:"🤸",bird:"🐦",fish:"🐟",milk:"🥛",tree:"🌳",book:"📖",star:"⭐",moon:"🌙",rain:"🌧️",play:"⚽",home:"🏠",friend:"🧑‍🤝‍🧑",house:"🏡",water:"💧",apple:"🍎",happy:"😀",green:"🟢",light:"💡",night:"🌃",sleep:"😴",pencil:"✏️",school:"🏫",mother:"👩",family:"👨‍👩‍👧",animal:"🐘",flower:"🌸",garden:"🌷",kitchen:"🍳",orange:"🍊",purple:"🟣",bridge:"🌉",circle:"⭕",people:"👥",mountain:"⛰️",library:"📚",building:"🏢",brother:"👦",weather:"⛅",journey:"🧳",together:"🤝",calendar:"📅",ocean:"🌊",science:"🔬",exercise:"🏃",surprise:"🎁",restaurant:"🍽️",vegetable:"🥕",language:"🗣️",adventure:"🧭"};
+var sub="math",lives=3,score=0,combo=0,level=1,hits=0,cur=null,t0=0,dur=12000,lock=true,raf=0,run=false,snd=true,ac=null,best=0,maxY=0;
+var cheers=["Great hit! ⚔️","Water Breathing! 🌊","Nice slash!","You’re strong!","Moonlight strike! 🌙"];
+function r(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function shuf(a){return a.slice().sort(function(){return Math.random()-.5})}
+try{best=+localStorage.getItem("dh_best")||0}catch(e){}
+function tone(f,t,d,ty,v){if(!snd)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();if(ac.state==="suspended")ac.resume();var o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+t;o.type=ty||"triangle";o.frequency.value=f;g.gain.setValueAtTime(v||.15,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.connect(g);g.connect(ac.destination);o.start(s);o.stop(s+d)}catch(e){}}
+function sfx(k){if(k==="ok"){tone(660,0,.12);tone(880,.1,.2)}else if(k==="bad"){tone(160,0,.28,"sawtooth",.12)}else if(k==="up"){[523,659,784,1047].forEach(function(f,i){tone(f,i*.12,.25)})}}
+var FEM=["Samantha","Ava","Allison","Susan","Victoria","Karen","Moira","Tessa","Serena","Fiona","Zira","Google US English"];
+function girl(){var v=speechSynthesis.getVoices().filter(function(x){return /^en/i.test(x.lang)});for(var i=0;i<FEM.length;i++){for(var j=0;j<v.length;j++){if(v[j].name.indexOf(FEM[i])>-1)return v[j]}}return null}
+function speak(w){if(window.speechSynthesis){speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(w),v=girl();if(v){u.voice=v;u.lang=v.lang}else{u.lang="en-US";u.pitch=1.3}u.rate=.75;speechSynthesis.speak(u)}}
+function mathQ(){
+  var k=Math.min(level,6),M=[9,20,50,99,500,999][k-1],F=[5,9,12,12,12,15][k-1],m=r(0,3),a,b,t,ans;
+  if(m===0){a=r(1,M);b=r(1,Math.min(M,99));t=a+" + "+b;ans=a+b}
+  else if(m===1){a=r(2,M);b=r(1,Math.min(a-1,M));t=a+" − "+b;ans=a-b}
+  else if(m===2){a=r(2,F);b=r(2,k>3?12:F);t=a+" × "+b;ans=a*b}
+  else{b=r(2,F);var q=r(2,k>3?12:F);t=(b*q)+" ÷ "+b;ans=q}
+  var set=[ans],g=0;
+  while(set.length<3&&g++<50){var d=ans+[-1,1,-2,2,-10,10,3,-3][r(0,7)];if(d>=0&&set.indexOf(d)<0)set.push(d)}
+  while(set.length<3)set.push(ans+set.length+10);
+  return{q:t+" = ?",s:"Tap the right answer",a:String(ans),o:set.map(String)}
+}
+function bad(w){var c,i,t,x,s,g=0;do{c=w.split("");i=r(1,Math.max(1,w.length-2));t=r(0,2);
+  if(t===0){x=c[i];c[i]=c[i+1]||x;c[i+1]=x}else if(t===1&&w.length>3){c.splice(i,1)}else{c.splice(i,0,c[i])}
+  s=c.join("")}while(s===w&&g++<20);return s===w?w+"e":s}
+function spellQ(){
+  var L=W[Math.min(level,6)-1],w=L[r(0,L.length-1)],o=[w],g=0;
+  while(o.length<3&&g++<40){var b=bad(w);if(o.indexOf(b)<0)o.push(b)}
+  while(o.length<3)o.push(w+"x"+o.length);
+  return{q:(PIC[w]||"🔊"),s:"Which one is spelled right? (tap 🔊 to hear)",a:w,o:o,say:w}
+}
+function hud(){var h="";for(var i=0;i<3;i++)h+=i<lives?"♥":"♡";$("hearts").textContent=h;$("score").textContent=score+(combo>=3?"  ×"+(1+Math.floor(combo/3)):"");$("lvl").textContent="Lv "+level}
+function newQ(){
+  var k=sub==="both"?(r(0,1)?"math":"spell"):sub;
+  cur=k==="math"?mathQ():spellQ();
+  $("q").textContent=cur.q;$("qs").textContent=cur.s;
+  var lane=$("lane");lane.innerHTML="";
+  shuf(cur.o).forEach(function(o,i){
+    var b=document.createElement("button");b.className="d";
+    b.innerHTML='<svg viewBox="0 0 100 100" style="filter:hue-rotate('+(i*120)+'deg)"><use href="#dm"/></svg><span class="lab"></span>';
+    b.querySelector(".lab").textContent=o;
+    b.addEventListener("click",function(){pick(b,o)});
+    lane.appendChild(b)
+  });
+  dur=Math.max(5000,13000-(level-1)*1400);
+  maxY=Math.max(20,$("field").clientHeight-lane.offsetHeight-70);
+  t0=performance.now();lock=false;
+  if(cur.say)speak(cur.say)
+}
+function msg(t){$("msg").textContent=t}
+function slash(){var h=$("hero");h.classList.add("slash");setTimeout(function(){h.classList.remove("slash")},180)}
+function pick(b,o){
+  if(lock)return;
+  if(o===cur.a){
+    lock=true;sfx("ok");slash();b.classList.add("pop");
+    score+=10*(1+Math.floor(combo/3));combo++;hits++;msg(cheers[r(0,cheers.length-1)]);
+    if(hits%8===0){level++;sfx("up");msg("LEVEL "+level+"! ⚡")}
+    hud();setTimeout(function(){msg("");newQ()},750)
+  }else{
+    sfx("bad");b.classList.add("gone");combo=0;lives--;hud();
+    if(lives<=0){lock=true;over()}
+  }
+}
+function miss(){
+  lock=true;sfx("bad");combo=0;lives--;hud();
+  Array.prototype.forEach.call($("lane").children,function(d){if(d.querySelector(".lab").textContent===cur.a)d.classList.add("good")});
+  msg("Answer: "+cur.a);
+  if(lives<=0){setTimeout(over,1200);return}
+  setTimeout(function(){msg("");newQ()},1600)
+}
+function loop(ts){
+  if(!run)return;
+  if(!lock){
+    var p=Math.min(1,(ts-t0)/dur);
+    $("lane").style.transform="translateY("+(p*maxY)+"px)";
+    $("tb").style.width=(100-p*100)+"%";
+    if(p>=1)miss()
+  }
+  raf=requestAnimationFrame(loop)
+}
+function over(){
+  run=false;cancelAnimationFrame(raf);
+  var nb=score>best;if(nb){best=score;try{localStorage.setItem("dh_best",best)}catch(e){}}
+  $("e1").textContent="Score: "+score+" · Level "+level;
+  $("e2").textContent=nb?"🏆 New best score!":"Best score: "+best;
+  show("end")
+}
+function show(id){["menu","game","end"].forEach(function(s){$(s).classList.toggle("hide",s!==id)});if(id==="menu")$("bestm").textContent=best?"🏆 Best score: "+best:""}
+function start(m){sub=m;lives=3;score=0;combo=0;level=1;hits=0;msg("");hud();show("game");run=true;newQ();cancelAnimationFrame(raf);raf=requestAnimationFrame(loop)}
+Array.prototype.forEach.call(document.querySelectorAll(".mode"),function(b){b.addEventListener("click",function(){start(b.dataset.m)})});
+$("again").addEventListener("click",function(){start(sub)});
+$("home").addEventListener("click",function(){show("menu")});
+$("back").addEventListener("click",function(){run=false;cancelAnimationFrame(raf);if(window.speechSynthesis)speechSynthesis.cancel();show("menu")});
+$("qbox").addEventListener("click",function(){if(cur&&cur.say)speak(cur.say)});
+$("snd").addEventListener("click",function(){snd=!snd;$("snd").textContent=snd?"🔊":"🔇"});
+show("menu")
+})();
+</script>
+</body>
+</html>
